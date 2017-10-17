@@ -10,6 +10,7 @@
 #include <nav_msgs/OccupancyGrid.h>
 #include <nav_msgs/Odometry.h>
 #include <math.h>
+
 #include "../include/map_sender/map_sender.h"
 using namespace cv;
 using namespace std;
@@ -49,7 +50,7 @@ void MapSender ::start(){
 	}
 }
 
-void MapSender::mapDataReceived( nav_msgs::OccupancyGrid& map){
+void MapSender::mapDataReceived(const nav_msgs::OccupancyGrid& map){
 	mapWidth = map.info.width;
 	mapHeight = map.info.height;
 	// rawMapData = (int *)map.data;
@@ -104,7 +105,7 @@ void MapSender::odomReceived(const nav_msgs::Odometry& odom){
 	             params.push_back(CV_IMWRITE_PNG_COMPRESSION);
 	    	params.push_back(90);  
 	    	//encode mat matrix into vector<uchar> 
-	    	imencode(".png", mat, vecImg, params);  
+	    	cv::imencode(".png", mat, vecImg, params);  
  		
     		string base64_str = encode(vecImg.data(), vecImg.size()); 
 		

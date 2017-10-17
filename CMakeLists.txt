@@ -12,6 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  cv_bridge
+  image_transport
+
 )
 
  add_message_files(
@@ -36,6 +39,8 @@ catkin_package(
 include_directories(include ${catkin_INCLUDE_DIRS})
 
 add_subdirectory(src)
+
+
 
 install(DIRECTORY include
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}

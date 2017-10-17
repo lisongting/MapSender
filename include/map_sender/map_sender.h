@@ -42,7 +42,7 @@ private:
 
 	std::string encode(const unsigned char* Data,int size);
 
-	void mapDataReceived(nav_msgs::OccupancyGrid& map);
+	void mapDataReceived(const nav_msgs::OccupancyGrid& map);
 
 	void odomReceived(const nav_msgs::Odometry& odom);
 
